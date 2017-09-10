@@ -1,10 +1,15 @@
 import { Router } from 'express'
 
-import users from './users'
+import posts from './posts'
 
 const router = Router()
 
-// Add USERS Routes
-router.use(users)
+router.get('/', (req, res) => {
+    res.json({
+        'version': '1.0.0',
+    })
+})
+// Add POSTS Routes
+router.use(posts)
 
 export default router

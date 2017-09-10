@@ -20,6 +20,7 @@
     "express": "^4.15.3",
     "lodash": "^4.17.4",
     "nuxt": "^1.0.0-rc3",
+    "slugify": "^1.2.1",
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {
