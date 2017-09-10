@@ -19,6 +19,7 @@
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "nuxt": "^1.0.0-rc3",
     "slugify": "^1.2.1",
     "source-map-support": "^0.4.15"

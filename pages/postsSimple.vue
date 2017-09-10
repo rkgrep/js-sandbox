@@ -6,6 +6,7 @@
         <div class="">
             <div v-for="post in posts" class="border border-dark p-1">
                 <h5>{{ post.title }}</h5>
+                <p>User: {{ post.user.data.name }}</p>
                 <p>{{ post.description }}</p>
             </div>
         </div>

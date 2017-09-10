@@ -1,12 +1,23 @@
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
-export default (module, ssr = false) => {
+export default (module, getters = false, ssr = false) => {
     const component = {
-        computed: {
-            ...mapState('feed', [
-                'posts',
-            ]),
-        },
+        methods: {
+            async reload () {
+                await this.$store.dispatch(`${module}/fetch`)
+                console.log(this.posts)
+            }
+        }
+    }
+
+    if (getters) {
+        component.computed = {
+            ...mapGetters(module, ['posts'])
+        }
+    } else {
+        component.computed = {
+            ...mapState(module, ['posts'])
+        }
     }
 
     if (ssr) {
@@ -15,9 +26,7 @@ export default (module, ssr = false) => {
         }
     } else {
         component.mounted = function () {
-            this.$store.dispatch(`${module}/fetch`).then(() => {
-                console.log(this.posts)
-            })
+            this.reload()
         }
     }
     return component
