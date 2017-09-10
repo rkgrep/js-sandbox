@@ -7,7 +7,7 @@ const router = Router()
 /* GET posts listing. */
 router.get('/posts', function (req, res, next) {
     res.json({
-        data: _.times(req.query.limit || 100, post),
+        data: _.times(req.query.limit || 200, post),
         meta: {},
     })
 })

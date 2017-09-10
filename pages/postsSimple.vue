@@ -13,31 +13,9 @@
 </template>
 
 <script>
-    import { mapState, mapActions } from 'vuex'
+    import Basic from './posts.vue'
 
     export default {
-//        async fetch ({ store }) {
-//            await store.dispatch('feed/fetch')
-//        },
-        computed: {
-            ...mapState('feed', [
-                'posts',
-            ]),
-        },
-        methods: {
-            ...mapActions('feed', [
-                'fetch',
-            ]),
-        },
-        mounted () {
-            this.fetch()
-        },
+        mixins: [Basic],
     }
 </script>
-
-<style>
-    .avatar {
-        width: 1rem;
-        height: 1rem;
-    }
-</style>

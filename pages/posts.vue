@@ -32,25 +32,10 @@
 </template>
 
 <script>
-    import { mapState, mapActions } from 'vuex'
+    import Basic from '~/components/Posts'
 
     export default {
-//        async fetch ({ store }) {
-//            await store.dispatch('feed/fetch')
-//        },
-        computed: {
-            ...mapState('feed', [
-                'posts',
-            ]),
-        },
-        methods: {
-            ...mapActions('feed', [
-                'fetch',
-            ]),
-        },
-        mounted () {
-            this.fetch()
-        },
+        mixins: [Basic('feed', false)],
     }
 </script>
 
