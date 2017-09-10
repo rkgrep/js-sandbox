@@ -1,7 +1,5 @@
 import { Router } from 'express'
 
-import posts from './posts'
-
 const router = Router()
 
 router.get('/', (req, res) => {
@@ -9,7 +7,12 @@ router.get('/', (req, res) => {
         'version': '1.0.0',
     })
 })
-// Add POSTS Routes
-router.use(posts)
+
+import { posts, tags, users } from '../models'
+import { resource } from './resource'
+
+router.use(resource('posts', posts))
+router.use(resource('users', users))
+router.use(resource('tags', tags))
 
 export default router

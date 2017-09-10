@@ -5,7 +5,7 @@
         </h1>
         <posts-bar module="feedFrozen"/>
         <div class="card-columns" v-if="posts.length > 0">
-            <post-item :post="post" v-for="post in posts" :key="post.id" />
+            <post-item :post="post" module="feedFrozen" v-for="post in posts" :key="post.id" />
         </div>
     </section>
 </template>

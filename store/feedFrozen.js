@@ -27,6 +27,14 @@ export const mutations = {
     UPDATE_ORDER (state, order) {
         state.postsOrder = order
     },
+
+    REMOVE_POST (state, postId) {
+        const index = state.postsOrder.indexOf(postId)
+        if (index > -1) {
+            state.postsOrder.splice(index, 1)
+            postsMap.delete(postId)
+        }
+    },
 }
 
 export const getters = {
@@ -44,5 +52,9 @@ export const actions = {
 
     shuffle ({ commit, state }) {
         commit('UPDATE_ORDER', _.shuffle(state.postsOrder))
+    },
+
+    remove ({ commit }, id) {
+        commit('REMOVE_POST', id)
     },
 }

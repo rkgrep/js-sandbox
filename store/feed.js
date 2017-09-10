@@ -11,8 +11,16 @@ export const mutations = {
     UPDATE_LOAD_TIME (state, time) {
         state.loadedAt = time
     },
+
     UPDATE_POSTS (state, posts) {
         state.posts = posts
+    },
+
+    REMOVE_POST (state, postId) {
+        const index = _.findIndex(state.posts, (post) => post.id === postId)
+        if (index > -1) {
+            state.posts.splice(index, 1)
+        }
     },
 }
 
@@ -25,5 +33,9 @@ export const actions = {
 
     shuffle ({ commit, state }) {
         commit('UPDATE_POSTS', _.shuffle(state.posts))
+    },
+
+    remove ({ commit }, id) {
+        commit('REMOVE_POST', id)
     },
 }
